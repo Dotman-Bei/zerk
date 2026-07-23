@@ -84,7 +84,22 @@ export default function LandingPage() {
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative isolate overflow-hidden">
-        <div aria-hidden className="bloom pointer-events-none absolute inset-0 -z-10" />
+        {/* Film-strip texture. The source photo is mostly white, so it is inverted to a dark
+            field, desaturated, dimmed and slowly drifted — it must read as texture behind the
+            headline, never as a picture competing with it. Tune `opacity-30` to taste. */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-20 overflow-hidden">
+          <div className="hero-film-drift absolute inset-0 bg-[url('/hero-film.jpg')] bg-cover bg-center opacity-60 grayscale invert" />
+        </div>
+        {/* Scrim + centre vignette keep weight-300 white text legible over every frame of the
+            drift. Adjust the `from-ink/*` stop if the texture ever crowds the copy. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-ink/75 via-ink/45 to-ink"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(55%_45%_at_50%_42%,rgba(10,10,10,0.85),transparent_70%)]"
+        />
         <div className="mx-auto max-w-6xl px-6 py-32 text-center sm:py-40">
           <Pill>( Confidential Crossing )</Pill>
 

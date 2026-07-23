@@ -84,3 +84,33 @@
 @utility pulse-dot {
   animation: zerk-pulse 2.4s ease-in-out infinite;
 }
+
+/**
+ * Ambient hero motion. A slow zoom-and-drift so the film-strip texture reads as alive without
+ * ever pulling focus from the headline. Base scale stays above 1 so the drift never reveals an
+ * edge of the layer.
+ */
+@keyframes hero-drift {
+  0% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.14) translate3d(-1.5%, -1%, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+}
+
+@utility hero-film-drift {
+  animation: hero-drift 32s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Respect users who ask for less motion — the texture holds still. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-film-drift {
+    animation: none;
+    transform: scale(1.08);
+  }
+}
