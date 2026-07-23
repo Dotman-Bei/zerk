@@ -90,20 +90,29 @@
  * ever pulling focus from the headline. Base scale stays above 1 so the drift never reveals an
  * edge of the layer.
  */
-/* Continuous one-way rotation — never reverses, so there is no ping-pong.
-   scale(2.2) oversizes the layer so the corners stay covered at every angle
-   (a rotating rectangle needs ~2.2x to fully cover a wide hero at 45deg). */
+/* x -> y -> x -> y: four axis-aligned legs tracing a closed rectangle, so the
+   layer travels a circuit instead of retracing one line back and forth.
+   scale(1.12) leaves 6% overhang per side, comfortably covering the 3% travel. */
 @keyframes hero-drift {
-  from {
-    transform: rotate(0deg) scale(2.2);
+  0% {
+    transform: scale(1.12) translate3d(0, 0, 0);
   }
-  to {
-    transform: rotate(360deg) scale(2.2);
+  25% {
+    transform: scale(1.12) translate3d(-3%, 0, 0);
+  }
+  50% {
+    transform: scale(1.12) translate3d(-3%, -3%, 0);
+  }
+  75% {
+    transform: scale(1.12) translate3d(0, -3%, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(0, 0, 0);
   }
 }
 
 @utility hero-film-drift {
-  /* linear, not ease-in-out: an eased full turn visibly stalls each cycle. */
+  /* linear keeps each leg at constant speed, so the x/y turns stay crisp. */
   animation: hero-drift 1.6s linear infinite;
   will-change: transform;
 }
@@ -112,6 +121,6 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-film-drift {
     animation: none;
-    transform: rotate(0deg) scale(2.2);
+    transform: scale(1.12);
   }
 }
