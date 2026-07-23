@@ -7,10 +7,8 @@ import { PillLink } from "./ui";
 import { shortAddress } from "@/lib/format";
 
 const anchors = [
-  { href: "/#problem", label: "Problem" },
-  { href: "/#solution", label: "Solution" },
   { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#why-zerk", label: "Why Zerk" },
+  { href: "/docs", label: "Documentation" },
 ];
 
 export function Nav() {
@@ -35,7 +33,13 @@ export function Nav() {
           ZERK
         </Link>
 
-        <div className="hidden flex-1 items-center justify-center gap-8 lg:flex">
+        {/* Landing carries only two links, so they get room to breathe; the app screens
+            keep the tighter rhythm because they carry four. */}
+        <div
+          className={`hidden flex-1 items-center justify-center lg:flex ${
+            onLanding ? "gap-20" : "gap-8"
+          }`}
+        >
           {(onLanding ? anchors : appLinks).map((item) => (
             <Link
               key={item.href}
@@ -51,20 +55,6 @@ export function Nav() {
         </div>
 
         <div className="ml-auto flex items-center gap-5 lg:ml-0">
-          {onLanding ? (
-            <>
-              <Link href="/docs" className="hidden text-[13px] text-muted hover:text-white sm:block">
-                Docs
-              </Link>
-              <Link
-                href="/public"
-                className="hidden text-[13px] text-muted hover:text-white sm:block"
-              >
-                Public
-              </Link>
-            </>
-          ) : null}
-
           {address ? (
             <span
               className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[11px] text-muted backdrop-blur-[8px] sm:inline-flex"
