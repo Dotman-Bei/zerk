@@ -22,8 +22,10 @@ export function Nav() {
     { href: "/docs", label: "Docs" },
   ];
 
+  // Solid, not translucent: the nav sits over scrolling content and must stay a fixed
+  // reference edge rather than taking on whatever passes beneath it.
   return (
-    <header className="glass-nav sticky top-0 z-50">
+    <header className="sticky top-0 z-50 border-b border-hairline bg-ink">
       <nav className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-6">
         <Link
           href="/"
@@ -56,7 +58,7 @@ export function Nav() {
         <div className="ml-auto flex items-center gap-5 lg:ml-0">
           {address ? (
             <span
-              className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[11px] text-muted backdrop-blur-[8px] sm:inline-flex"
+              className="hidden items-center gap-2 rounded-full hairline px-3 py-1.5 font-mono text-[11px] text-muted sm:inline-flex"
               title={address}
             >
               <span className="pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-white" />
@@ -75,12 +77,12 @@ export function Nav() {
           {/* Pill and arrow disc are one link, not two, so assistive tech announces a single
               destination rather than the same route twice. */}
           <Link href="/desk" className="group inline-flex items-center gap-2">
-            <span className="rounded-full bg-accent px-5 py-2 text-[13px] text-ink transition-colors group-hover:bg-accent/85">
+            <span className="rounded-full bg-white px-5 py-2 text-[13px] text-ink transition-colors group-hover:bg-white/85">
               Open Desk
             </span>
             <span
               aria-hidden
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-ink transition-colors group-hover:bg-accent/85"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-ink transition-colors group-hover:bg-white/85"
             >
               <svg
                 viewBox="0 0 16 16"
