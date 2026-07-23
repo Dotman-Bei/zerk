@@ -103,7 +103,7 @@
 }
 
 @utility hero-film-drift {
-  animation: hero-drift 16s ease-in-out infinite;
+  animation: hero-drift 1.6s ease-in-out infinite;
   will-change: transform;
 }
 
