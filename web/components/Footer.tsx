@@ -32,22 +32,50 @@ const builtOn = [
   { label: "Ethereum Sepolia", href: "https://sepolia.etherscan.io" },
 ];
 
+/** The small glyph that marks a link as leaving the site. */
+function ExternalMark() {
+  return (
+    <svg
+      viewBox="0 0 12 12"
+      aria-hidden
+      className="ml-1.5 inline-block h-2.5 w-2.5 shrink-0"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M7 2.5h2.5V5" />
+      <path d="M9.5 2.5 5.75 6.25" />
+      <path d="M8.5 7v2.5h-6v-6H5" />
+    </svg>
+  );
+}
+
+const linkClass =
+  "inline-flex items-center text-[13px] text-muted transition-colors hover:text-white";
+
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-white/[0.03] backdrop-blur-[16px]">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="mx-auto max-w-6xl px-6 pt-10 pb-12">
+      {/* The reference floats its footer as a panel rather than banding it across the viewport,
+          so the page background stays continuous behind and beside it. */}
+      <div className="glass rounded-[20px] p-10 sm:p-14">
+        <div className="grid gap-12 lg:grid-cols-[1.7fr_1fr_1fr_1fr]">
           <div>
             <span className="text-[15px] font-light tracking-[0.28em] text-white">ZERK</span>
-            <p className="mt-4 max-w-[24ch] text-[13px] leading-relaxed text-muted">
-              A confidential crossing network for tokenized real-world assets.
+            <p className="mt-5 max-w-[38ch] text-[13px] leading-relaxed text-muted">
+              A confidential crossing network for tokenized real-world assets. Encrypted orders,
+              matching inside a TEE, settlement through unmodified Seaport.
             </p>
           </div>
 
           {columns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-[10px] uppercase tracking-[0.22em] text-white">{column.title}</h3>
-              <ul className="mt-4 space-y-2.5">
+              <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
+                {column.title}
+              </h3>
+              <ul className="mt-6 space-y-3.5">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     {"external" in link && link.external ? (
@@ -55,16 +83,14 @@ export function Footer() {
                         href={link.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="text-[13px] text-muted transition-colors hover:text-white"
+                        className={linkClass}
                       >
                         {link.label}
+                        <ExternalMark />
                       </a>
                     ) : (
-                      <Link
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        href={link.href as any}
-                        className="text-[13px] text-muted transition-colors hover:text-white"
-                      >
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      <Link href={link.href as any} className={linkClass}>
                         {link.label}
                       </Link>
                     )}
@@ -74,26 +100,28 @@ export function Footer() {
             </div>
           ))}
         </div>
+      </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-hairline pt-8 text-[12px] text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p className="flex flex-wrap items-center gap-1.5">
-            <span>Built on:</span>
-            {builtOn.map((item, index) => (
-              <span key={item.label} className="flex items-center gap-1.5">
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-white transition-opacity hover:opacity-70"
-                >
-                  {item.label}
-                </a>
-                {index < builtOn.length - 1 ? <span className="text-ghost">·</span> : null}
-              </span>
-            ))}
-          </p>
-          <p>© {new Date().getFullYear()} Zerk Network.</p>
-        </div>
+      {/* Meta rail sits outside the panel, as in the reference — it belongs to the page, not the
+          footer card. */}
+      <div className="mt-8 flex flex-col gap-3 px-2 text-[10px] tracking-[0.22em] text-ghost uppercase sm:flex-row sm:items-center sm:justify-between">
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span>Built on</span>
+          {builtOn.map((item, index) => (
+            <span key={item.label} className="flex items-center gap-x-2">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="transition-colors hover:text-white"
+              >
+                {item.label}
+              </a>
+              {index < builtOn.length - 1 ? <span aria-hidden>·</span> : null}
+            </span>
+          ))}
+        </p>
+        <p>© {new Date().getFullYear()} Zerk Network</p>
       </div>
     </footer>
   );
