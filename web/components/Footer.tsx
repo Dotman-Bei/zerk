@@ -60,8 +60,8 @@ export function Footer() {
     <footer className="mx-auto max-w-6xl px-6 pt-10 pb-12">
       {/* The reference floats its footer as a panel rather than banding it across the viewport,
           so the page background stays continuous behind and beside it. */}
-      <div className="glass rounded-[20px] p-10 sm:p-14">
-        <div className="grid gap-12 lg:grid-cols-[1.7fr_1fr_1fr_1fr]">
+      <div className="glass rounded-[20px] p-7 sm:p-10 lg:p-14">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1.7fr_1fr_1fr_1fr]">
           <div>
             <span className="text-[15px] font-light tracking-[0.28em] text-white">ZERK</span>
             <p className="mt-5 max-w-[38ch] text-[13px] leading-relaxed text-muted">

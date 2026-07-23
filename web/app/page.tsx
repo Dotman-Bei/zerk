@@ -101,7 +101,7 @@ export default function LandingPage() {
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(55%_45%_at_50%_42%,rgba(10,10,10,0.85),transparent_70%)]"
         />
-        <div className="mx-auto max-w-6xl px-6 py-32 text-center sm:py-40">
+        <div className="mx-auto max-w-6xl px-6 py-24 text-center sm:py-32 md:py-40">
           <Pill>( Confidential Crossing )</Pill>
 
           <h1 className="mx-auto mt-10 max-w-[16ch] text-5xl leading-[1.05] font-light tracking-tight text-white sm:text-6xl md:text-7xl">
@@ -126,7 +126,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Problem ──────────────────────────────────────────────────────── */}
-      <section id="problem" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
+      <section id="problem" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-24">
         <SectionHeading pill="The Leak" title="Public chains expose your book." />
 
         <div className="mt-14 grid gap-4 md:grid-cols-3">
@@ -143,7 +143,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Solution ─────────────────────────────────────────────────────── */}
-      <section id="solution" className="relative isolate mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
+      <section id="solution" className="relative isolate mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-24">
         {/* Dots at rest, strokes where the cursor reaches — the section's own argument, rendered.
             Breaks out to full viewport width so the field has no visible edge. */}
         <InteractiveDotGrid />
@@ -203,7 +203,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── How it works ─────────────────────────────────────────────────── */}
-      <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
+      <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-24">
         <SectionHeading pill="Architecture" title="From intent to settlement." />
 
         <div className="relative mt-16">
@@ -233,7 +233,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Why Zerk ─────────────────────────────────────────────────────── */}
-      <section id="why-zerk" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
+      <section id="why-zerk" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-24">
         <SectionHeading pill="Differentiators" title="Built for trading desks." />
 
         <div className="mt-14 grid gap-4 md:grid-cols-2">

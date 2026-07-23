@@ -197,7 +197,7 @@ export default function DeskPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
+    <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
       <SectionHeading
         pill="The Desk"
         title={

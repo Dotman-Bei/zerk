@@ -68,7 +68,7 @@ export default function PublicPage() {
   }, [refresh]);
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
+    <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
       <SectionHeading pill="The Proof" title="What the chain actually exposes." />
 
       <p className="mt-6 max-w-[68ch] text-[13px] leading-relaxed text-muted">

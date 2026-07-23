@@ -77,7 +77,7 @@ export default function AuditorPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
+    <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
       <SectionHeading pill="Selective Disclosure" title="Compliance without publicity." />
 
       <p className="mt-6 max-w-[68ch] text-[13px] leading-relaxed text-muted">
