@@ -57,7 +57,9 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-[14px] ${flat ? "glass-inset" : "glass"} ${className}`}
+      // `flat` stays plain: it marks a panel nested inside another card, and a glow within a
+      // glow reads as noise rather than emphasis.
+      className={`rounded-[14px] ${flat ? "glass-inset" : "glow-card"} ${className}`}
     >
       {children}
     </div>
