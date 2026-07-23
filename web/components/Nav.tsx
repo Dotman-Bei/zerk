@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useWallet } from "./WalletProvider";
-import { PillLink } from "./ui";
 import { shortAddress } from "@/lib/format";
 
 const anchors = [
@@ -73,9 +72,30 @@ export function Nav() {
             </button>
           ) : null}
 
-          <PillLink href="/desk" className="px-5 py-2 text-[13px]">
-            Open Desk
-          </PillLink>
+          {/* Pill and arrow disc are one link, not two, so assistive tech announces a single
+              destination rather than the same route twice. */}
+          <Link href="/desk" className="group inline-flex items-center gap-2">
+            <span className="rounded-full bg-accent px-5 py-2 text-[13px] text-ink transition-colors group-hover:bg-accent/85">
+              Open Desk
+            </span>
+            <span
+              aria-hidden
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-ink transition-colors group-hover:bg-accent/85"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                className="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M4.75 11.25 11.25 4.75" />
+                <path d="M6 4.75h5.25V10" />
+              </svg>
+            </span>
+          </Link>
         </div>
       </nav>
     </header>
