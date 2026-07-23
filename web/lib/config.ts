@@ -63,4 +63,5 @@ export const deskLabels: Record<string, string> = Object.fromEntries(
     .map(([address, label]) => [(address as string).toLowerCase(), label as string])
 );
 
-export const REPO_URL = process.env.NEXT_PUBLIC_REPO_URL ?? "https://github.com";
+export const REPO_URL =
+  process.env.NEXT_PUBLIC_REPO_URL ?? "https://github.com/Dotman-Bei/zerk";

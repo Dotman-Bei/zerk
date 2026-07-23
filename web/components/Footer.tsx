@@ -11,7 +11,7 @@ const columns = [
     ],
   },
   {
-    title: "Developers",
+    title: "Resources",
     links: [
       { label: "Docs", href: "/docs" },
       { label: "GitHub", href: REPO_URL, external: true },
@@ -104,7 +104,7 @@ export function Footer() {
 
       {/* Meta rail sits outside the panel, as in the reference — it belongs to the page, not the
           footer card. */}
-      <div className="mt-8 flex flex-col gap-3 px-2 text-[10px] tracking-[0.22em] text-ghost uppercase sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-8 flex flex-col gap-3 px-2 text-[10px] tracking-[0.22em] text-white uppercase sm:flex-row sm:items-center sm:justify-between">
         <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <span>Built on</span>
           {builtOn.map((item, index) => (
@@ -113,7 +113,7 @@ export function Footer() {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="transition-colors hover:text-white"
+                className="transition-opacity hover:opacity-70"
               >
                 {item.label}
               </a>
