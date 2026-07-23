@@ -1,4 +1,5 @@
 import { Card, Mono, Pill, PillLink, SectionHeading } from "@/components/ui";
+import { InteractiveDotGrid } from "@/components/ui/interactive-dot-grid";
 
 const problems = [
   {
@@ -142,7 +143,10 @@ export default function LandingPage() {
       </section>
 
       {/* ── Solution ─────────────────────────────────────────────────────── */}
-      <section id="solution" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
+      <section id="solution" className="relative isolate mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
+        {/* Dots at rest, strokes where the cursor reaches — the section's own argument, rendered.
+            Breaks out to full viewport width so the field has no visible edge. */}
+        <InteractiveDotGrid />
         <SectionHeading
           pill="The Boundary"
           title="Zero-knowledge matching. Atomic settlement."
