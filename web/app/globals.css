@@ -156,7 +156,7 @@
 
 @utility hero-film-drift {
   /* linear keeps each leg at constant speed, so the x/y turns stay crisp. */
-  animation: hero-drift 1.6s linear infinite;
+  animation: hero-drift 9.6s linear infinite;
   will-change: transform;
 }
 
