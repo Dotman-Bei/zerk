@@ -18,7 +18,7 @@ export function Pill({
   } as const;
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.22em] ${tones[tone]} ${className}`}
+      className={`inline-flex items-center rounded-full border bg-white/[0.03] px-3 py-1 text-[10px] uppercase tracking-[0.22em] backdrop-blur-[6px] ${tones[tone]} ${className}`}
     >
       {children}
     </span>
@@ -57,9 +57,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-[14px] ${
-        flat ? "bg-ink border border-transparent" : "bg-surface hairline"
-      } ${className}`}
+      className={`rounded-[14px] ${flat ? "glass-inset" : "glass"} ${className}`}
     >
       {children}
     </div>
@@ -73,7 +71,7 @@ const buttonBase =
 
 const buttonTones: Record<ButtonTone, string> = {
   primary: "bg-white text-black hover:bg-white/85",
-  ghost: "hairline text-white hover:border-white/40 hover:bg-white/5",
+  ghost: "glass text-white hover:border-white/40 hover:bg-white/10",
 };
 
 export function PillButton({
@@ -152,13 +150,11 @@ export function Field({
 }
 
 export const inputClass =
-  "w-full rounded-[10px] bg-ink hairline px-4 py-3 font-mono text-sm text-white outline-none transition-colors focus:border-white/40 placeholder:text-ghost";
+  "w-full rounded-[10px] glass-inset px-4 py-3 font-mono text-sm text-white outline-none transition-colors focus:border-white/40 placeholder:text-ghost";
 
 export function Empty({ children }: { children: ReactNode }) {
   return (
-    <div className="rounded-[14px] hairline bg-surface px-6 py-12 text-center text-sm text-muted">
-      {children}
-    </div>
+    <div className="glass rounded-[14px] px-6 py-12 text-center text-sm text-muted">{children}</div>
   );
 }
 
@@ -171,10 +167,8 @@ export function Banner({
 }) {
   return (
     <div
-      className={`rounded-[14px] px-5 py-4 text-sm ${
-        tone === "warn"
-          ? "border border-white/25 bg-white/[0.04] text-white"
-          : "hairline bg-surface text-muted"
+      className={`glass rounded-[14px] px-5 py-4 text-sm ${
+        tone === "warn" ? "border-white/25 text-white" : "text-muted"
       }`}
     >
       {children}

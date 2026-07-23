@@ -167,7 +167,7 @@ export default function AuditorPage() {
                 </div>
 
                 {p.acl ? (
-                  <div className="mt-6 rounded-[10px] bg-ink px-4 py-4">
+                  <div className="glass-inset mt-6 rounded-[10px] px-4 py-4">
                     <p className="text-[10px] uppercase tracking-[0.22em] text-muted">
                       ACL — limit handle
                     </p>
@@ -225,7 +225,7 @@ function ProbeCell({
   kind: "side" | "base" | "quote";
 }) {
   return (
-    <div className="rounded-[10px] bg-ink px-4 py-3">
+    <div className="glass-inset rounded-[10px] px-4 py-3">
       <p className="text-[10px] uppercase tracking-[0.22em] text-muted">{label}</p>
       <p className="mt-2">
         {!outcome ? (

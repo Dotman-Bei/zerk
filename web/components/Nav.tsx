@@ -26,7 +26,7 @@ export function Nav() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-hairline bg-ink/85 backdrop-blur-[5px]">
+    <header className="glass-nav sticky top-0 z-50">
       <nav className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-6">
         <Link
           href="/"
@@ -67,7 +67,7 @@ export function Nav() {
 
           {address ? (
             <span
-              className="hidden items-center gap-2 rounded-full hairline px-3 py-1.5 font-mono text-[11px] text-muted sm:inline-flex"
+              className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[11px] text-muted backdrop-blur-[8px] sm:inline-flex"
               title={address}
             >
               <span className="pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-white" />

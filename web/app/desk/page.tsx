@@ -273,7 +273,7 @@ export default function DeskPage() {
                     className={`rounded-[10px] px-4 py-3 text-sm transition-colors ${
                       side === option.value
                         ? "bg-white text-black"
-                        : "hairline text-muted hover:text-white"
+                        : "glass text-muted hover:text-white"
                     }`}
                   >
                     {option.label}
@@ -450,7 +450,7 @@ function HandleCell({
   kind: "side" | "base" | "quote";
 }) {
   return (
-    <div className="rounded-[10px] bg-ink px-4 py-3">
+    <div className="glass-inset rounded-[10px] px-4 py-3">
       <dt className="text-[10px] uppercase tracking-[0.22em] text-muted">{label}</dt>
       <dd className="mt-2">
         {!outcome ? (

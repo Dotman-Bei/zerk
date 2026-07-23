@@ -92,7 +92,7 @@ export default function PublicPage() {
               href={explorerAddress(c.address!)}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-full hairline px-3 py-1.5 text-[11px] text-muted transition-colors hover:border-white/40 hover:text-white"
+              className="glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] text-muted transition-colors hover:border-white/40 hover:text-white"
             >
               {c.label}
               <span className="font-mono">{shortAddress(c.address!)}</span>
@@ -249,7 +249,7 @@ export default function PublicPage() {
                 </div>
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                  <div className="rounded-[10px] bg-ink px-4 py-3">
+                  <div className="glass-inset rounded-[10px] px-4 py-3">
                     <p className="text-[10px] uppercase tracking-[0.22em] text-muted">crossed</p>
                     <p className="mt-2">
                       <Mono tone="ghost" title={m.hCrossed}>
@@ -257,7 +257,7 @@ export default function PublicPage() {
                       </Mono>
                     </p>
                   </div>
-                  <div className="rounded-[10px] bg-ink px-4 py-3">
+                  <div className="glass-inset rounded-[10px] px-4 py-3">
                     <p className="text-[10px] uppercase tracking-[0.22em] text-muted">fill size</p>
                     <p className="mt-2">
                       {m.approved ? (
@@ -271,7 +271,7 @@ export default function PublicPage() {
                       )}
                     </p>
                   </div>
-                  <div className="rounded-[10px] bg-ink px-4 py-3">
+                  <div className="glass-inset rounded-[10px] px-4 py-3">
                     <p className="text-[10px] uppercase tracking-[0.22em] text-muted">fill price</p>
                     <p className="mt-2">
                       {m.approved ? (

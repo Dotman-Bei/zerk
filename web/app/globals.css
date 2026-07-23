@@ -86,6 +86,49 @@
 }
 
 /**
+ * Glassmorphism surfaces.
+ *
+ * backdrop-filter can only blur what is actually BEHIND an element. On a flat #0a0a0a page there
+ * is nothing back there, so the blur resolves to a no-op and the panels look unchanged. The
+ * ambient-field layer in the root layout supplies the luminance these surfaces refract — the two
+ * are a pair, and removing the field silently turns all of this off.
+ */
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+/** Sunken variant — inputs and panels nested inside a glass card. */
+@utility glass-inset {
+  background-color: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/** Heavier blur for the sticky nav, which must stay legible over scrolling content. */
+@utility glass-nav {
+  background-color: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/** Ambient luminance behind the whole app. Kept white-only so the palette stays monochrome. */
+@utility ambient-field {
+  background-image:
+    radial-gradient(46% 38% at 12% 6%, rgba(255, 255, 255, 0.055), transparent 70%),
+    radial-gradient(40% 32% at 88% 24%, rgba(255, 255, 255, 0.04), transparent 70%),
+    radial-gradient(50% 40% at 50% 78%, rgba(255, 255, 255, 0.035), transparent 72%);
+}
+
+/**
  * Ambient hero motion. A slow zoom-and-drift so the film-strip texture reads as alive without
  * ever pulling focus from the headline. Base scale stays above 1 so the drift never reveals an
  * edge of the layer.

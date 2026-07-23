@@ -39,6 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable}`}>
       <body className="min-h-screen overflow-x-hidden antialiased">
+        {/* Supplies the luminance the .glass surfaces refract. Without it backdrop-filter has
+            nothing behind it to blur on a flat #0a0a0a page, and every glass panel renders flat. */}
+        <div aria-hidden className="ambient-field pointer-events-none fixed inset-0 -z-10" />
         <WalletProvider>
           <Nav />
           <main>{children}</main>

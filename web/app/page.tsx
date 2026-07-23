@@ -150,7 +150,7 @@ export default function LandingPage() {
 
         <div className="mt-14 grid items-start gap-6 lg:grid-cols-2">
           {/* Left: what stays hidden. Rendered as texture, not information. */}
-          <div className="rounded-[14px] bg-ink p-7">
+          <div className="glass-inset rounded-[14px] p-7">
             <span className="text-[10px] uppercase tracking-[0.22em] text-muted">
               Never revealed
             </span>
@@ -169,7 +169,7 @@ export default function LandingPage() {
           </div>
 
           {/* Right: what settlement publishes. Rendered at full contrast. */}
-          <div className="rounded-[14px] border border-white/45 bg-surface p-7">
+          <div className="glass rounded-[14px] border-white/45 p-7">
             <span className="text-[10px] uppercase tracking-[0.22em] text-white">
               Revealed at settlement
             </span>
@@ -246,7 +246,7 @@ export default function LandingPage() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-wrap items-center justify-between gap-6 rounded-[14px] hairline bg-surface px-8 py-8">
+        <div className="glass mt-16 flex flex-wrap items-center justify-between gap-6 rounded-[14px] px-8 py-8">
           <div>
             <h3 className="text-xl font-light text-white">Trade size without telling anyone.</h3>
             <p className="mt-2 text-[13px] text-muted">

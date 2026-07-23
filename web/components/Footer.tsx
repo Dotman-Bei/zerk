@@ -34,7 +34,7 @@ const builtOn = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-hairline">
+    <footer className="border-t border-white/10 bg-white/[0.03] backdrop-blur-[16px]">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
