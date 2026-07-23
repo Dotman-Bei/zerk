@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/**
+ * Zerk's palette is deliberately narrow: five greys and white. The design argument of the whole
+ * page is contrast — what is hidden renders as texture, what is disclosed renders as text — so
+ * every additional colour would weaken it. There is no light theme; the venue is a dark room.
+ */
+@theme {
+  --color-ink: #0a0a0a;
+  --color-bloom: #141414;
+  --color-surface: #111111;
+  --color-hairline: #222222;
+  --color-ghost: #333333;
+  --color-muted: #888888;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, "SFMono-Regular", "Cascadia Mono", monospace;
+
+  --radius-card: 14px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* the sticky nav must not swallow anchor targets */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  /* Wide content scrolls inside its own container; the page body never does. */
+  .scroll-x {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-hairline) transparent;
+  }
+}
+
+@utility hairline {
+  border: 1px solid var(--color-hairline);
+}
+
+/** The hero's soft bloom. Sits behind the text block, never in front of it. */
+@utility bloom {
+  background-image: radial-gradient(
+    60% 55% at 50% 42%,
+    var(--color-bloom) 0%,
+    rgba(20, 20, 20, 0.45) 40%,
+    transparent 72%
+  );
+}
+
+/** The dashed rail that connects the four architecture steps. */
+@utility step-rail {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-hairline) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+@keyframes zerk-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@utility pulse-dot {
+  animation: zerk-pulse 2.4s ease-in-out infinite;
+}

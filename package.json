@@ -1,0 +1,35 @@
+{
+  "name": "zerk-protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zerk — a confidential crossing network for tokenized real-world assets. Encrypted orders, TEE matching, unmodified Seaport settlement.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "hardhat compile",
+    "clean": "hardhat clean",
+    "test": "hardhat test",
+    "deploy:tokens": "hardhat run script/01_deploy_tokens.ts --network sepolia",
+    "deploy:book": "hardhat run script/02_deploy_book.ts --network sepolia",
+    "deploy:zone": "hardhat run script/03_deploy_zone.ts --network sepolia",
+    "deploy:allowlist": "hardhat run script/04_allowlist_and_approve.ts --network sepolia",
+    "deploy:all": "npm run deploy:tokens && npm run deploy:book && npm run deploy:zone && npm run deploy:allowlist",
+    "matcher": "tsx matcher/index.ts",
+    "matcher:once": "tsx matcher/index.ts --once",
+    "sync-abi": "tsx script/sync-abi.ts"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.7",
+    "@types/node": "^22.10.5",
+    "dotenv": "^16.4.7",
+    "hardhat": "^3.11.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@iexec-nox/handle": "^0.1.0-beta.13",
+    "@iexec-nox/nox-protocol-contracts": "^0.2.4",
+    "@openzeppelin/contracts": "^5.6.1",
+    "viem": "^2.55.8"
+  }
+}

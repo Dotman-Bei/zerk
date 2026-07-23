@@ -1,0 +1,17 @@
+node_modules/
+artifacts/
+cache/
+types/
+.env
+.env.local
+*.log
+
+# NOTE: web/lib/generated/ and matcher/generated/ are intentionally NOT ignored.
+# Vercel builds web/ standalone and never runs `hardhat compile`, so the ABIs and the
+# deployment record must be in the tree. Regenerate with `npm run sync-abi`.
+
+# Next.js
+web/.next/
+web/out/
+web/next-env.d.ts
+web/tsconfig.tsbuildinfo
