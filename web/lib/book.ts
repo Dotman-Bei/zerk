@@ -146,17 +146,27 @@ export async function fetchMatches(): Promise<MatchRow[]> {
   });
 }
 
-/** Raw event log feed for /public — the literal answer to "what does the chain show?". */
+/** Public RPCs cap eth_getLogs per call — drpc's free plan at 10k blocks, and others lower. */
+const LOG_CHUNK = 9_000n;
+
+/** Raw event log feed for /public — the literal answer to "what does the chain show?". Scans in
+ *  ≤LOG_CHUNK windows so it fits the free-plan range limit, and tolerates a single window failing
+ *  (e.g. a provider treating an older range as archive) rather than blanking the whole feed. */
 export async function fetchBookLogs(lookbackBlocks = 45_000n) {
   const book = bookAddress();
   const head = await publicClient.getBlockNumber();
-  const fromBlock = head > lookbackBlocks ? head - lookbackBlocks : 0n;
+  const start = head > lookbackBlocks ? head - lookbackBlocks : 0n;
 
-  const logs = await publicClient.getLogs({
-    address: book,
-    fromBlock,
-    toBlock: head,
-  });
+  const logs: Awaited<ReturnType<typeof publicClient.getLogs>> = [];
+  for (let from = start; from <= head; from += LOG_CHUNK + 1n) {
+    const to = from + LOG_CHUNK > head ? head : from + LOG_CHUNK;
+    try {
+      const chunk = await publicClient.getLogs({ address: book, fromBlock: from, toBlock: to });
+      logs.push(...chunk);
+    } catch {
+      // Skip a window the provider won't serve; recent events must still render.
+    }
+  }
 
   return logs.reverse();
 }

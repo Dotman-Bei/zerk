@@ -166,7 +166,7 @@ export default function LandingPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 max-w-[44ch] text-[13px] leading-relaxed text-ghost">
+            <p className="mt-8 max-w-[44ch] text-[13px] leading-relaxed text-muted">
               Not redacted for this page — these values do not exist in plaintext anywhere on
               chain, and never will.
             </p>

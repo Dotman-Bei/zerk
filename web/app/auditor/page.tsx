@@ -109,7 +109,7 @@ export default function AuditorPage() {
             <Mono tone="muted" title={address}>
               {shortAddress(address)}
             </Mono>
-            <span className="text-[13px] text-ghost">
+            <span className="text-[13px] text-muted">
               Grants are issued from the desk view, one order at a time.
             </span>
           </>
@@ -139,7 +139,7 @@ export default function AuditorPage() {
                     {address ? (
                       <span
                         className={`text-[10px] uppercase tracking-[0.22em] ${
-                          granted ? "text-white" : "text-ghost"
+                          granted ? "text-white" : "text-muted"
                         }`}
                       >
                         {granted === undefined
@@ -171,7 +171,7 @@ export default function AuditorPage() {
                     <p className="text-[10px] uppercase tracking-[0.22em] text-muted">
                       ACL — limit handle
                     </p>
-                    <dl className="mt-3 space-y-1.5 font-mono text-[11px] text-ghost">
+                    <dl className="mt-3 space-y-1.5 font-mono text-[11px] text-muted">
                       <div>
                         public: <span className="text-muted">{String(p.acl.isPublic)}</span>
                       </div>
@@ -191,7 +191,7 @@ export default function AuditorPage() {
                   </div>
                 ) : null}
 
-                <p className="mt-4 font-mono text-[11px] text-ghost">
+                <p className="mt-4 font-mono text-[11px] text-muted">
                   submitted {formatTimestamp(order.submittedAt)}
                 </p>
               </Card>

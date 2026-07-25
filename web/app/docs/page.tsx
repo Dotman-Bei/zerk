@@ -174,7 +174,7 @@ export default function DocsPage() {
                   </td>
                   <td className="px-5 py-3.5 text-[13px] text-white">{row.actor}</td>
                   <td className="px-5 py-3.5 text-[13px] text-muted">{row.action}</td>
-                  <td className="px-5 py-3.5 font-mono text-[12px] text-ghost">{row.chain}</td>
+                  <td className="px-5 py-3.5 font-mono text-[12px] text-muted">{row.chain}</td>
                 </tr>
               ))}
             </tbody>

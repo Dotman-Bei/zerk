@@ -370,7 +370,7 @@ export default function DeskPage() {
                           {statusLabel(order.status)}
                         </span>
                       </div>
-                      <span className="font-mono text-[11px] text-ghost">
+                      <span className="font-mono text-[11px] text-muted">
                         {formatTimestamp(order.submittedAt)}
                       </span>
                     </div>

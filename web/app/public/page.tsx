@@ -99,7 +99,7 @@ export default function PublicPage() {
             </a>
           ))}
         {updatedAt ? (
-          <span className="ml-auto flex items-center gap-2 text-[11px] text-ghost">
+          <span className="ml-auto flex items-center gap-2 text-[11px] text-muted">
             <span className="pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-white" />
             live · {updatedAt} UTC
           </span>
@@ -187,7 +187,7 @@ export default function PublicPage() {
                         </span>
                       </td>
                       <td className="px-5 py-4">
-                        <span className="font-mono text-[11px] text-ghost">
+                        <span className="font-mono text-[11px] text-muted">
                           {formatTimestamp(o.submittedAt)}
                         </span>
                       </td>
@@ -198,7 +198,7 @@ export default function PublicPage() {
             </Card>
           )}
         </div>
-        <p className="mt-4 text-[12px] leading-relaxed text-ghost">
+        <p className="mt-4 text-[12px] leading-relaxed text-muted">
           The side, size and limit columns are the literal storage values. Each is a 32-byte Nox
           handle — an index into ciphertext held off-chain. No amount of chain analysis resolves
           them.
@@ -233,7 +233,7 @@ export default function PublicPage() {
                           : m.approved
                             ? "text-white"
                             : m.finalized
-                              ? "text-ghost"
+                              ? "text-muted"
                               : "text-muted"
                       }`}
                     >
@@ -288,7 +288,7 @@ export default function PublicPage() {
                 </div>
 
                 {m.finalized && !m.approved ? (
-                  <p className="mt-5 text-[12px] leading-relaxed text-ghost">
+                  <p className="mt-5 text-[12px] leading-relaxed text-muted">
                     This pair did not cross. Nothing about why was disclosed — the enclave&rsquo;s
                     rejection is computationally indistinguishable from an acceptance until the
                     result is decrypted, and both orders simply went back to resting.
@@ -311,7 +311,7 @@ export default function PublicPage() {
             <Empty>No logs in the lookback window.</Empty>
           ) : (
             <Card className="scroll-x p-6">
-              <pre className="font-mono text-[11px] leading-relaxed text-ghost">
+              <pre className="font-mono text-[11px] leading-relaxed text-muted">
                 {logs
                   .slice(0, 40)
                   .map((log) => {

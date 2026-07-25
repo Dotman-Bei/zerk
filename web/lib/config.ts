@@ -41,8 +41,12 @@ export const addresses = {
 
 export const isDeployed = Boolean(addresses.book);
 
+// Default must be an endpoint that serves eth_getLogs: the /public feed depends on it, and
+// publicnode refuses logs on its free tier ("archive requires a personal token"). drpc is keyless
+// and serves logs up to a 10k-block range per call (see fetchBookLogs, which chunks to fit).
+// Override with your own (e.g. an Alchemy key) via NEXT_PUBLIC_SEPOLIA_RPC_URL for production.
 export const RPC_URL =
-  process.env.NEXT_PUBLIC_SEPOLIA_RPC_URL ?? "https://ethereum-sepolia-rpc.publicnode.com";
+  process.env.NEXT_PUBLIC_SEPOLIA_RPC_URL || "https://sepolia.drpc.org";
 
 export const EXPLORER = "https://sepolia.etherscan.io";
 

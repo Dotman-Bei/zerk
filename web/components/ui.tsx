@@ -14,7 +14,7 @@ export function Pill({
   const tones = {
     muted: "text-muted border-hairline",
     white: "text-white border-white/40",
-    ghost: "text-ghost border-hairline",
+    ghost: "text-muted border-hairline",
   } as const;
   return (
     <span
@@ -146,13 +146,13 @@ export function Field({
     <label className="block">
       <span className="block text-[10px] uppercase tracking-[0.22em] text-muted">{label}</span>
       <div className="mt-2">{children}</div>
-      {hint ? <span className="mt-2 block text-xs text-ghost">{hint}</span> : null}
+      {hint ? <span className="mt-2 block text-xs text-muted">{hint}</span> : null}
     </label>
   );
 }
 
 export const inputClass =
-  "w-full rounded-[10px] glass-inset px-4 py-3 font-mono text-sm text-white outline-none transition-colors focus:border-white/40 placeholder:text-ghost";
+  "w-full rounded-[10px] glass-inset px-4 py-3 font-mono text-sm text-white outline-none transition-colors focus:border-white/40 placeholder:text-muted";
 
 export function Empty({ children }: { children: ReactNode }) {
   return (
