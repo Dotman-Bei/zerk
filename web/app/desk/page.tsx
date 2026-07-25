@@ -91,8 +91,14 @@ export default function DeskPage() {
       .catch(() => setBalances(null));
   }, [address, txHash]);
 
+  // The blotter is a recent-activity view, not the full ledger: show only this desk's two most
+  // recent orders, newest first. fetchOrders returns ascending by id, so the tail is the newest.
   const myOrders = useMemo(
-    () => orders.filter((o) => address && o.desk.toLowerCase() === address.toLowerCase()),
+    () =>
+      orders
+        .filter((o) => address && o.desk.toLowerCase() === address.toLowerCase())
+        .slice(-2)
+        .reverse(),
     [orders, address]
   );
 
