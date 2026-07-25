@@ -1,0 +1,10 @@
+{
+  "chainId": 11155111,
+  "rwa": "0x4f9c1cdb39e34a07bb9d8684c75e99570b1f1f0b",
+  "usdc": "0x6dc8c597ea9e48b3d9d7a8478c43b04dee0093f3",
+  "deployedAt": "2026-07-25T13:18:02.028Z",
+  "book": "0x7ea50f6c044a7de9ffcf64d0321e4d711db5605a",
+  "noxCompute": "0x24Ef36Ec5b626D7DCD09a98F3083c2758F0F77bF",
+  "zone": "0x648cdf8346dbaf3a78af26b93244b2f00483ec95",
+  "seaport": "0x0000000000000068F116a894984e2DB1123eB395"
+}

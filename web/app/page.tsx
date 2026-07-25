@@ -101,7 +101,7 @@ export default function LandingPage() {
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(55%_45%_at_50%_42%,rgba(10,10,10,0.85),transparent_70%)]"
         />
-        <div className="mx-auto max-w-6xl px-6 py-24 text-center sm:py-32 md:py-40">
+        <div className="mx-auto max-w-6xl px-6 pt-16 pb-24 text-center sm:pt-20 sm:pb-32 md:pt-24 md:pb-40">
           <Pill>( Confidential Crossing )</Pill>
 
           <h1 className="mx-auto mt-10 max-w-[16ch] text-5xl leading-[1.05] font-light tracking-tight text-white sm:text-6xl md:text-7xl">

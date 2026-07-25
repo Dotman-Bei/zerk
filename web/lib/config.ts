@@ -8,7 +8,7 @@ export const NOX_COMPUTE_SEPOLIA = "0x24Ef36Ec5b626D7DCD09a98F3083c2758F0F77bF" 
 export const BASE_DECIMALS = 18;
 export const QUOTE_DECIMALS = 6;
 export const BASE_SYMBOL = "tT-BILL";
-export const QUOTE_SYMBOL = "USDC";
+export const QUOTE_SYMBOL = "tUSDC";
 
 type Record11155111 = {
   rwa?: `0x${string}`;

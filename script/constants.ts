@@ -17,8 +17,12 @@ export const CONDUIT_CONTROLLER = "0x00000000F9490004C11Cef243f5400493c00Ad63" a
 export const ZERO_CONDUIT_KEY =
   "0x0000000000000000000000000000000000000000000000000000000000000000" as const;
 
-/** Circle's official test USDC on Ethereum Sepolia (6 decimals). */
-export const SEPOLIA_USDC = "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238" as const;
+/**
+ * Circle's official test USDC on Ethereum Sepolia (6 decimals). Kept for reference only — the
+ * quote leg is `ZerkUSD`, deployed by script 01, because Circle's faucet dispenses 10 USDC an
+ * hour and the demo crosses a ~40M notional. See ZerkUSD.sol.
+ */
+export const CIRCLE_SEPOLIA_USDC = "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238" as const;
 
 /** Resolved by the Nox Solidity SDK from block.chainid; repeated here for the scripts and UI. */
 export const NOX_COMPUTE_SEPOLIA = "0x24Ef36Ec5b626D7DCD09a98F3083c2758F0F77bF" as const;

@@ -50,7 +50,9 @@ describe("Zerk — end to end on Sepolia", { skip: !ENABLED && "set RUN_SEPOLIA_
   const transport = http(process.env.SEPOLIA_RPC_URL ?? "https://ethereum-sepolia-rpc.publicnode.com");
   const publicClient = createPublicClient({ chain: sepolia, transport });
 
-  const book = (process.env.ZERK_BOOK_ADDRESS ??
+  // `||`, not `??`: .env ships ZERK_BOOK_ADDRESS as an empty string (an intentional blank
+  // override), which `??` would keep. `||` falls through the empty string to the deploy record.
+  const book = (process.env.ZERK_BOOK_ADDRESS ||
     (deployments as Record<string, { book?: Address }>)["11155111"]?.book) as Address;
 
   async function submit(

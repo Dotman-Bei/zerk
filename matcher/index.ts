@@ -39,7 +39,9 @@ function env(name: string): string {
 
 function bookAddress(): Address {
   const record = (deployments as Record<string, { book?: Address }>)[String(CHAIN_ID)];
-  const fromEnv = process.env.ZERK_BOOK_ADDRESS as Address | undefined;
+  // `|| undefined` normalises the empty-string override (.env ships ZERK_BOOK_ADDRESS blank) to
+  // undefined, so the `?? record?.book` fallback actually fires instead of resolving to "".
+  const fromEnv = (process.env.ZERK_BOOK_ADDRESS || undefined) as Address | undefined;
   const address = fromEnv ?? record?.book;
   if (!address) {
     throw new Error("No ZerkBook address. Deploy first and run `npm run sync-abi`.");
