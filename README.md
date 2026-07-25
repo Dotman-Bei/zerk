@@ -186,8 +186,9 @@ cd web && npm install && npm run dev
 `matcher` and `settle` are separate processes on purpose — the first is blind and holds no keys,
 the second holds the desk keys it needs to settle. Both accept `:once` for a single sweep.
 
-To run them as one always-on worker (so a hosted front-end settles trades without a local terminal),
-`npm run keeper` runs both together. See [docs/KEEPER.md](docs/KEEPER.md) for the Render/Railway deploy.
+To run them without a local terminal (so a hosted front-end settles trades on its own), `npm run
+keeper` runs both together. See [docs/KEEPER.md](docs/KEEPER.md) — free on GitHub Actions, or as a
+worker on Render/Railway.
 
 ---
 

@@ -10,8 +10,23 @@ Vercel cannot run these — they poll forever, and serverless functions are shor
 as a single always-on **worker**. Once it is up, anything a judge submits on the site is matched and
 settled automatically, with no terminal on anyone's part.
 
-`npm run keeper` (`matcher/keeper.mjs`) runs both loops in one process. `render.yaml` and
-`railway.json` configure the two hosts below; pick one.
+`npm run keeper` (`matcher/keeper.mjs`) runs both loops in one process. Pick one host below —
+GitHub Actions is free; Render and Railway are paid worker tiers.
+
+## Deploy on GitHub Actions (free)
+
+`.github/workflows/keeper.yml` runs the keeper on a schedule — free on public repos, no server to
+manage. Each run drives both loops for ~4 minutes and the schedule fires every 5 minutes, so a
+trade submitted during a brief gap settles within about 5 minutes.
+
+1. Push this repo to GitHub (already done). The workflow is on the default branch, so it schedules
+   automatically.
+2. Add three secrets: **Settings → Secrets and variables → Actions → New repository secret** —
+   `MATCHER_PRIVATE_KEY`, `DESK_A_PRIVATE_KEY`, `DESK_B_PRIVATE_KEY` (the `0x…` values from `.env`).
+3. Test it now without waiting for the cron: **Actions → keeper → Run workflow**. Open the run and
+   check the logs for `blind matcher online` and `settlement operator online`.
+
+Widen the `cron` interval in the workflow if you want fewer runs; the tradeoff is slower settlement.
 
 ## Deploy on Render
 

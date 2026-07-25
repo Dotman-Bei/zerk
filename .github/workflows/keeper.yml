@@ -1,0 +1,45 @@
+name: keeper
+
+# Runs the Zerk keepers (matcher + settle) on a schedule, so a hosted front-end (Vercel) settles
+# trades with no always-on server of your own. Free on public repos.
+#
+# Each run drives both loops for ~4 minutes; the schedule fires every 5 minutes, so coverage is
+# near-continuous. A trade submitted during a brief gap settles on the next run (<=5 min).
+#
+# Required repo secrets — Settings -> Secrets and variables -> Actions -> New repository secret:
+#   MATCHER_PRIVATE_KEY, DESK_A_PRIVATE_KEY, DESK_B_PRIVATE_KEY   (testnet keys)
+# Contract addresses are NOT secrets — they come from the committed matcher/generated/deployments.ts.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+# One keeper at a time. A new scheduled run waits for the current one rather than piling up.
+concurrency:
+  group: keeper
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  keep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - name: Run matcher + settle (~4 min)
+        env:
+          MATCHER_PRIVATE_KEY: ${{ secrets.MATCHER_PRIVATE_KEY }}
+          DESK_A_PRIVATE_KEY: ${{ secrets.DESK_A_PRIVATE_KEY }}
+          DESK_B_PRIVATE_KEY: ${{ secrets.DESK_B_PRIVATE_KEY }}
+        # Run keeper.mjs directly (not via npm) so `timeout` signals it straight — it handles
+        # SIGTERM and shuts its children down cleanly. `-k 15` SIGKILLs if it lingers; `|| true`
+        # keeps the step green (timeout always exits non-zero when it stops the process).
+        run: timeout -k 15 240 node matcher/keeper.mjs || true
