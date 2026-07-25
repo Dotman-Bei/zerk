@@ -16,6 +16,8 @@
     "deploy:all": "npm run deploy:tokens && npm run deploy:book && npm run deploy:zone && npm run deploy:allowlist",
     "matcher": "tsx matcher/index.ts",
     "matcher:once": "tsx matcher/index.ts --once",
+    "settle": "tsx matcher/settle.ts",
+    "settle:once": "tsx matcher/settle.ts --once",
     "sync-abi": "tsx script/sync-abi.ts"
   },
   "devDependencies": {
