@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ZerkLogo } from "@/components/ui/logo";
 import { REPO_URL, explorerAddress, addresses } from "@/lib/config";
 
 const columns = [
@@ -63,7 +64,7 @@ export function Footer() {
       <div className="glass rounded-[20px] p-7 sm:p-10 lg:p-14">
         <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1.7fr_1fr_1fr_1fr]">
           <div>
-            <span className="text-[15px] font-light tracking-[0.28em] text-white">ZERK</span>
+            <ZerkLogo />
             <p className="mt-5 max-w-[38ch] text-[13px] leading-relaxed text-muted">
               A confidential crossing network for tokenized real-world assets. Encrypted orders,
               matching inside a TEE, settlement through unmodified Seaport.
