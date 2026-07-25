@@ -187,7 +187,7 @@ cd web && npm install && npm run dev
 the second holds the desk keys it needs to settle. Both accept `:once` for a single sweep.
 
 To run them as one always-on worker (so a hosted front-end settles trades without a local terminal),
-`npm run keeper` runs both together. See [docs/KEEPER.md](docs/KEEPER.md) for the Railway deploy.
+`npm run keeper` runs both together. See [docs/KEEPER.md](docs/KEEPER.md) for the Render/Railway deploy.
 
 ---
 

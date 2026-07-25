@@ -1,0 +1,22 @@
+# Render Blueprint — runs the Zerk keepers (matcher + settle) as one always-on worker.
+#
+# Note: a background worker is a *paid* instance type on Render; there is no free worker tier.
+# A free web service will not work here — it sleeps after inactivity, and a keeper must poll
+# continuously. Set the three private keys as secrets in the dashboard (sync: false).
+services:
+  - type: worker
+    name: zerk-keeper
+    runtime: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm run keeper
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: MATCHER_PRIVATE_KEY
+        sync: false
+      - key: DESK_A_PRIVATE_KEY
+        sync: false
+      - key: DESK_B_PRIVATE_KEY
+        sync: false
