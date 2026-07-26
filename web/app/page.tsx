@@ -105,9 +105,9 @@ export default function LandingPage() {
           <Pill>( Confidential Crossing )</Pill>
 
           <h1 className="mx-auto mt-10 max-w-[16ch] text-5xl leading-[1.05] font-light tracking-tight text-white sm:text-6xl md:text-7xl">
-            Your size moves markets.
+            Nobody sees the order.
             <br />
-            Your intent shouldn&apos;t.
+            Everybody sees the trade.
           </h1>
 
           <p className="mx-auto mt-8 max-w-[52ch] text-base leading-relaxed text-muted sm:text-lg">
