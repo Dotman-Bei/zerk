@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   description:
     "A dark pool for tokenized real-world assets on Ethereum Sepolia. Orders match inside a Trusted Execution Environment and settle atomically through unmodified Seaport.",
   openGraph: {
-    title: "Zerk — Institutional execution. Without the leak.",
+    title: "ZERK — Confidential crossing network for tokenized assets",
     description:
       "Confidential crossing network for tokenized RWAs. Encrypted orders, TEE matching, unmodified Seaport settlement.",
     type: "website",
