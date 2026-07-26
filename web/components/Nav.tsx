@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useWallet } from "./WalletProvider";
-import { ZerkLogo, ZerkMark } from "@/components/ui/logo";
 import { shortAddress } from "@/lib/format";
 
 const anchors = [
@@ -35,10 +34,11 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-ink">
       <nav className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-6">
-        {/* Mark-only on the narrowest screens so the bar doesn't crowd; full lockup from sm up. */}
-        <Link href="/" className="shrink-0 transition-opacity hover:opacity-70">
-          <ZerkMark className="h-7 w-7 text-white sm:hidden" />
-          <ZerkLogo className="hidden sm:inline-flex" />
+        <Link
+          href="/"
+          className="shrink-0 text-[15px] font-light tracking-[0.28em] text-white transition-opacity hover:opacity-70"
+        >
+          ZERK
         </Link>
 
         {/* Landing carries only two links, so they get room to breathe; the app screens
