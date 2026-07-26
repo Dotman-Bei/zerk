@@ -22,8 +22,9 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://zerk.network"),
   title: {
-    default: "Zerk — Institutional execution. Without the leak.",
-    template: "%s · Zerk",
+    // The home tab reads simply "ZERK"; inner pages still get their own name via the template.
+    default: "ZERK",
+    template: "%s · ZERK",
   },
   description:
     "A dark pool for tokenized real-world assets on Ethereum Sepolia. Orders match inside a Trusted Execution Environment and settle atomically through unmodified Seaport.",
