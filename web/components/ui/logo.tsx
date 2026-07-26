@@ -9,15 +9,21 @@ import type { ReactNode } from "react";
  * the surrounding text colour, and legible down to a 16px favicon because the geometry is solid
  * strokes, not dashes.
  */
-export function ZerkMark({ className = "" }: { className?: string }) {
+export function ZerkMark({
+  className = "",
+  decorative = false,
+}: {
+  className?: string;
+  /** Set when a sibling (the wordmark) already names the element, so the mark isn't announced twice. */
+  decorative?: boolean;
+}) {
   return (
     <svg
       viewBox="0 0 32 32"
       className={className}
       fill="none"
-      role="img"
-      aria-label="Zerk"
       xmlns="http://www.w3.org/2000/svg"
+      {...(decorative ? { "aria-hidden": true } : { role: "img", "aria-label": "Zerk" })}
     >
       {/* the venue */}
       <rect
@@ -56,7 +62,7 @@ export function ZerkLogo({
 }): ReactNode {
   return (
     <span className={`inline-flex items-center gap-2.5 text-white ${className}`}>
-      <ZerkMark className={markClass} />
+      <ZerkMark className={markClass} decorative />
       <span className="text-[15px] font-light tracking-[0.28em]">ZERK</span>
     </span>
   );
